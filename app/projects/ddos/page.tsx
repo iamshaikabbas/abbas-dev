@@ -50,7 +50,7 @@ export default function DDoSProject() {
       <div className="grid md:grid-cols-4 gap-5 mt-12">
 
         <div className="bg-slate-50 border rounded-2xl p-6 text-center">
-          <h3 className="text-3xl font-bold text-indigo-600">
+          <h3 className="text-3xl font-bold text-emerald-600">
             99.9%
           </h3>
           <p className="text-slate-500 mt-2">
@@ -59,7 +59,7 @@ export default function DDoSProject() {
         </div>
 
         <div className="bg-slate-50 border rounded-2xl p-6 text-center">
-          <h3 className="text-3xl font-bold text-indigo-600">
+          <h3 className="text-3xl font-bold text-emerald-600">
             900K+
           </h3>
           <p className="text-slate-500 mt-2">
@@ -68,7 +68,7 @@ export default function DDoSProject() {
         </div>
 
         <div className="bg-slate-50 border rounded-2xl p-6 text-center">
-          <h3 className="text-3xl font-bold text-indigo-600">
+          <h3 className="text-3xl font-bold text-emerald-600">
             RF
           </h3>
           <p className="text-slate-500 mt-2">
@@ -77,7 +77,7 @@ export default function DDoSProject() {
         </div>
 
         <div className="bg-slate-50 border rounded-2xl p-6 text-center">
-          <h3 className="text-3xl font-bold text-indigo-600">
+          <h3 className="text-3xl font-bold text-emerald-600">
             Real-Time
           </h3>
           <p className="text-slate-500 mt-2">
