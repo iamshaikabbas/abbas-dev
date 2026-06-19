@@ -1,83 +1,157 @@
 
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white">
+    <section
+      id="projects"
+      className="py-24 bg-gradient-to-b from-white to-green-50"
+    >
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold">
-            Featured Projects
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800">
+            🌿 Featured Projects
           </h2>
 
-          <p className="text-slate-600 mt-4">
-            Projects demonstrating analytics,
-            machine learning, software development,
-            and business intelligence capabilities.
+          <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+            A collection of projects demonstrating
+            Data Analytics, Machine Learning,
+            Software Engineering, and Business Intelligence.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
 
           {/* DDoS Project */}
 
-          <div className="border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 bg-white">
-
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="
+              bg-white
+              rounded-3xl
+              overflow-hidden
+              border
+              border-green-100
+              shadow-sm
+              hover:shadow-2xl
+              hover:border-emerald-300
+              transition-all
+            "
+          >
             <Image
               src="/images/ddos1.jpeg"
-              alt="DDoS Dashboard"
+              alt="DDoS Project"
               width={800}
               height={500}
-              className="w-full"
+              className="w-full h-64 object-cover"
             />
 
-            <div className="p-6">
+            <div className="p-7">
 
-              <h3 className="text-2xl font-semibold">
-                Real-Time DDoS Detection System
-              </h3>
+              <div className="flex items-center justify-between">
 
-              <p className="mt-4 text-slate-600 leading-7">
-                Developed an intelligent network monitoring
-                platform capable of identifying malicious
-                traffic using machine learning algorithms.
+                <h3 className="text-2xl font-bold">
+                  DDoS Detection System
+                </h3>
 
-                The system combines Flask APIs,
-                Streamlit dashboards, Random Forest,
-                Isolation Forest, and real-time traffic
-                analysis to improve cyber threat detection.
-              </p>
-
-              <div className="mt-5 flex gap-2 flex-wrap">
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Python
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Flask
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Streamlit
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Random Forest
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Machine Learning
+                <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
+                  ML Project
                 </span>
 
               </div>
 
-              <div className="flex gap-3 mt-6">
+              <p className="mt-4 text-slate-600 leading-7">
+                Real-time cyber-security platform
+                capable of detecting malicious traffic
+                using Machine Learning and network analytics.
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 mt-6">
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    99.9%
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Accuracy
+                  </p>
+                </div>
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    900K+
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Records
+                  </p>
+                </div>
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    5+
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Models
+                  </p>
+                </div>
+
+              </div>
+
+              <div className="mt-6 flex gap-2 flex-wrap">
+
+                {[
+                  "Python",
+                  "Flask",
+                  "Streamlit",
+                  "Random Forest",
+                  "ML",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="
+                      bg-green-50
+                      border
+                      border-green-100
+                      px-3
+                      py-1
+                      rounded-full
+                      text-sm
+                    "
+                  >
+                    {item}
+                  </span>
+                ))}
+
+              </div>
+
+              <div className="flex gap-3 mt-8">
 
                 <a
                   href="/projects/ddos"
-                  className="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700 transition"
+                  className="
+                    bg-emerald-600
+                    text-white
+                    px-5
+                    py-3
+                    rounded-xl
+                    hover:bg-emerald-700
+                    shadow-lg
+                    hover:shadow-xl
+                    transition
+                  "
                 >
                   View Details
                 </a>
@@ -86,7 +160,15 @@ export default function Projects() {
                   href="https://github.com/iamshaikabbas/network-intrusion-detection-system"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border px-5 py-3 rounded-xl hover:bg-slate-100 transition"
+                  className="
+                    border
+                    border-green-200
+                    px-5
+                    py-3
+                    rounded-xl
+                    hover:bg-green-50
+                    transition
+                  "
                 >
                   GitHub
                 </a>
@@ -95,54 +177,119 @@ export default function Projects() {
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* Music Store Project */}
 
-          <div className="border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 bg-white">
+          <motion.div
+            whileHover={{ y: -10 }}
+            className="
+              bg-white
+              rounded-3xl
+              border
+              border-green-100
+              shadow-sm
+              hover:shadow-2xl
+              hover:border-emerald-300
+              transition-all
+            "
+          >
+            <div className="p-7">
 
-            <div className="p-6">
+              <div className="flex items-center justify-between">
 
-              <h3 className="text-2xl font-semibold">
-                Music Store Analysis
-              </h3>
+                <h3 className="text-2xl font-bold">
+                  Music Store Analysis
+                </h3>
 
-              <p className="mt-4 text-slate-600 leading-7">
-                Performed end-to-end SQL analysis on a
-                digital music store database to uncover
-                customer behavior, revenue drivers,
-                artist performance, and sales trends.
-
-                Developed analytical queries to support
-                business decision making and identify
-                opportunities for growth.
-              </p>
-
-              <div className="mt-5 flex gap-2 flex-wrap">
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  SQL
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  PostgreSQL
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Analytics
-                </span>
-
-                <span className="bg-slate-100 px-3 py-1 rounded-lg">
-                  Business Intelligence
+                <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm">
+                  SQL Project
                 </span>
 
               </div>
 
-              <div className="flex gap-3 mt-6">
+              <p className="mt-4 text-slate-600 leading-7">
+                End-to-end SQL analytics project
+                focused on customer behavior,
+                revenue analysis, artist performance,
+                and business insights.
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 mt-6">
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    SQL
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Analytics
+                  </p>
+                </div>
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    BI
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Insights
+                  </p>
+                </div>
+
+                <div className="bg-green-50 rounded-xl p-3 text-center">
+                  <h4 className="font-bold text-emerald-600">
+                    KPI
+                  </h4>
+
+                  <p className="text-xs text-slate-500">
+                    Reports
+                  </p>
+                </div>
+
+              </div>
+
+              <div className="mt-6 flex gap-2 flex-wrap">
+
+                {[
+                  "SQL",
+                  "PostgreSQL",
+                  "Analytics",
+                  "Business Intelligence",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="
+                      bg-green-50
+                      border
+                      border-green-100
+                      px-3
+                      py-1
+                      rounded-full
+                      text-sm
+                    "
+                  >
+                    {item}
+                  </span>
+                ))}
+
+              </div>
+
+              <div className="flex gap-3 mt-8">
 
                 <a
                   href="/projects/music-store"
-                  className="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700 transition"
+                  className="
+                    bg-emerald-600
+                    text-white
+                    px-5
+                    py-3
+                    rounded-xl
+                    hover:bg-emerald-700
+                    shadow-lg
+                    hover:shadow-xl
+                    transition
+                  "
                 >
                   View Details
                 </a>
@@ -151,7 +298,15 @@ export default function Projects() {
                   href="https://github.com/iamshaikabbas/music-store-analysis-sql"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border px-5 py-3 rounded-xl hover:bg-slate-100 transition"
+                  className="
+                    border
+                    border-green-200
+                    px-5
+                    py-3
+                    rounded-xl
+                    hover:bg-green-50
+                    transition
+                  "
                 >
                   GitHub
                 </a>
@@ -160,7 +315,7 @@ export default function Projects() {
 
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 
@@ -168,3 +323,4 @@ export default function Projects() {
     </section>
   );
 }
+

@@ -2,8 +2,10 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Assistant() {
+  const [open, setOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,71 +28,184 @@ export default function Assistant() {
       });
 
       const data = await res.json();
-
       setAnswer(data.answer);
     } catch (error) {
       console.error(error);
-      setAnswer("Something went wrong while contacting the assistant.");
+      setAnswer("Something went wrong.");
     }
 
     setLoading(false);
   }
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <>
+      {/* Floating Assistant */}
 
-        <h2 className="text-4xl font-bold text-center">
-          💬 Ask About Abbas
-        </h2>
+      <button
+        onClick={() => setOpen(!open)}
+        className="
+          fixed
+          bottom-6
+          right-6
+          z-50
+          w-16
+          h-16
+          rounded-full
+          bg-emerald-600
+          text-white
+          text-2xl
+          shadow-2xl
+          hover:bg-emerald-700
+          hover:scale-110
+          transition-all
+        "
+      >
+        💬
+      </button>
 
-        <p className="text-center text-slate-600 mt-4">
-          Ask about skills, projects, experience,
-          technologies, or career interests.
-        </p>
+      <AnimatePresence>
 
-        <div className="mt-8 flex gap-4">
+        {open && (
 
-          <input
-            type="text"
-            placeholder="Ask anything about Abbas..."
-            className="flex-1 border rounded-xl px-4 py-3"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-          />
-
-          <button
-            onClick={askQuestion}
-            className="bg-blue-600 text-white px-6 rounded-xl hover:bg-blue-700"
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 40, scale: 0.9 }}
+            className="
+              fixed
+              bottom-28
+              right-6
+              z-50
+              w-[400px]
+              max-w-[95vw]
+              bg-white
+              border
+              border-green-100
+              rounded-3xl
+              shadow-2xl
+              overflow-hidden
+            "
           >
-            Ask
-          </button>
 
-        </div>
+            <div className="bg-emerald-600 text-white p-5">
 
-        {loading && (
-          <div className="mt-6 p-4 border rounded-xl bg-slate-50">
-            Thinking...
-          </div>
+              <h3 className="font-semibold text-lg">
+                 Abbas AI Assistant
+              </h3>
+
+              <p className="text-sm opacity-90">
+                Ask anything about skills, projects,
+                experience, and career interests.
+              </p>
+
+            </div>
+
+            <div className="p-5">
+
+              <div className="flex gap-2 mb-4">
+
+                <input
+                  type="text"
+                  placeholder="Ask about Abbas..."
+                  className="
+                    flex-1
+                    border
+                    border-green-100
+                    rounded-xl
+                    px-4
+                    py-3
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-emerald-300
+                  "
+                  value={question}
+                  onChange={(e) =>
+                    setQuestion(e.target.value)
+                  }
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      askQuestion();
+                    }
+                  }}
+                />
+
+                <button
+                  onClick={askQuestion}
+                  className="
+                    bg-emerald-600
+                    text-white
+                    px-5
+                    rounded-xl
+                    hover:bg-emerald-700
+                    transition
+                  "
+                >
+                  Ask
+                </button>
+
+              </div>
+
+              {loading && (
+
+                <div
+                  className="
+                    bg-green-50
+                    border
+                    border-green-100
+                    rounded-xl
+                    p-4
+                  "
+                >
+                  🌱 Thinking...
+                </div>
+
+              )}
+
+              {answer && (
+
+                <div
+                  className="
+                    bg-green-50
+                    border
+                    border-green-100
+                    rounded-xl
+                    p-4
+                    whitespace-pre-wrap
+                    max-h-80
+                    overflow-y-auto
+                  "
+                >
+                  {answer}
+                </div>
+
+              )}
+
+              <div className="mt-4 text-xs text-slate-500">
+
+                Suggested questions:
+
+                <ul className="mt-2 space-y-1">
+
+                  <li>• Explain the DDoS project</li>
+
+                  <li>• What are Abbas's strongest skills?</li>
+
+                  <li>• Summarize Abbas in 60 seconds</li>
+
+                  <li>• Why should a company hire Abbas?</li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
         )}
 
-        {answer && (
-          <div className="mt-6 p-6 border rounded-xl bg-slate-50 whitespace-pre-wrap">
-            {answer}
-          </div>
-        )}
-
-        <div className="mt-8 text-sm text-slate-500">
-          Example questions:
-          <ul className="mt-2 list-disc list-inside">
-            <li>What are Abbas's strongest skills?</li>
-            <li>Explain the DDoS project.</li>
-            <li>Would Abbas fit a Data Analyst role?</li>
-            <li>Summarize Abbas in 60 seconds.</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
+      </AnimatePresence>
+    </>
   );
 }
+
