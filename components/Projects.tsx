@@ -136,7 +136,54 @@ export default function Projects() {
                 ))}
 
               </div>
+{/* IEEE Achievement */}
 
+<div
+  className="
+    mt-8
+    rounded-2xl
+    border
+    border-yellow-300
+    bg-gradient-to-r
+    from-yellow-50
+    to-amber-50
+    p-5
+    shadow-sm
+  "
+>
+
+  <div className="flex items-center justify-between">
+
+    <div>
+
+      <h4 className="font-bold text-yellow-800">
+        🏆 Published in IEEE Conference
+      </h4>
+
+      <p className="text-sm text-slate-600 mt-1">
+        Research paper successfully published based on
+        this Machine Learning DDoS Detection System.
+      </p>
+
+    </div>
+
+    <div
+      className="
+        bg-yellow-500
+        text-white
+        px-4
+        py-2
+        rounded-full
+        font-semibold
+        text-sm
+      "
+    >
+      IEEE
+    </div>
+
+  </div>
+
+</div>
               <div className="flex gap-3 mt-8">
 
                 <a

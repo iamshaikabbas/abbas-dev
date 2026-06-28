@@ -199,33 +199,183 @@ export default function DDoSProject() {
 
       </section>
 
-      {/* GitHub */}
+      {/* Achievements */}
 
-      <div className="mt-20">
+<section className="mt-20">
 
-        <a
-          href="https://github.com/iamshaikabbas/network-intrusion-detection-system"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-  bg-green-800
-  text-white
-  px-5
-  py-3
-  rounded-xl
-  hover:bg-green-900
-  shadow-lg
-  hover:shadow-xl
-  transition
+  <h2 className="text-3xl font-bold text-emerald-700">
+    🏆 Achievements
+  </h2>
 
-          "
-        >
-          View GitHub Repository
-        </a>
+  <p className="mt-4 text-slate-600">
+    Supporting documents and research publication for this project.
+  </p>
 
+  <div className="grid md:grid-cols-2 gap-8 mt-10">
+
+    {/* IEEE Paper */}
+
+    <div
+      className="
+        bg-gradient-to-br
+        from-yellow-50
+        to-amber-50
+        border
+        border-yellow-300
+        rounded-3xl
+        p-8
+        shadow-lg
+        hover:shadow-xl
+        transition
+      "
+    >
+
+      <div className="text-6xl">
+        🏆
       </div>
 
-    </main>
-  );
-}
+      <h3 className="text-2xl font-bold mt-5">
+        IEEE Conference Paper
+      </h3>
 
+      <p className="mt-3 text-slate-600">
+        Published research paper based on this
+        Machine Learning DDoS Detection System.
+      </p>
+
+      <a
+        href="/ieee-paper.pdf"
+        target="_blank"
+        className="
+          inline-block
+          mt-6
+          bg-yellow-500
+          text-white
+          px-6
+          py-3
+          rounded-xl
+          hover:bg-yellow-600
+          transition
+        "
+      >
+        📄 View IEEE Paper
+      </a>
+
+    </div>
+
+    {/* Project Report */}
+
+    <div
+      className="
+        bg-gradient-to-br
+        from-green-50
+        to-emerald-50
+        border
+        border-emerald-200
+        rounded-3xl
+        p-8
+        shadow-lg
+        hover:shadow-xl
+        transition
+      "
+    >
+
+      <div className="text-6xl">
+        📘
+      </div>
+
+      <h3 className="text-2xl font-bold mt-5">
+        Development Report
+      </h3>
+
+      <p className="mt-3 text-slate-600">
+        Complete documentation explaining the
+        implementation and development process
+        of the entire project.
+      </p>
+
+      <a
+        href="/ddos-project-report.pdf"
+        target="_blank"
+        className="
+          inline-block
+          mt-6
+          bg-emerald-600
+          text-white
+          px-6
+          py-3
+          rounded-xl
+          hover:bg-emerald-700
+          transition
+        "
+      >
+        📘 View Report
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+      {/* GitHub */}
+{/* Source Code */}
+
+<section className="mt-20">
+
+  <h2 className="text-3xl font-bold text-emerald-700">
+    💻 Source Code
+  </h2>
+
+  <p className="mt-5 text-slate-600 max-w-3xl leading-8">
+    The complete implementation, including machine learning
+    models, Flask APIs, Streamlit dashboard, preprocessing,
+    and evaluation scripts, is available on GitHub.
+  </p>
+
+  <div className="mt-8 flex flex-wrap gap-4">
+
+    <a
+      href="https://github.com/iamshaikabbas/network-intrusion-detection-system"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        bg-green-800
+        text-white
+        px-6
+        py-3
+        rounded-xl
+        hover:bg-green-900
+        shadow-lg
+        transition
+      "
+    >
+      💻 View GitHub Repository
+    </a>
+
+  </div>
+
+</section>
+
+{/* Back */}
+
+<div className="mt-20 mb-10">
+
+  <a
+    href="/"
+    className="
+      inline-flex
+      items-center
+      text-emerald-700
+      font-semibold
+      hover:text-emerald-900
+      transition
+    "
+  >
+    ← Back to Portfolio
+  </a>
+
+</div>
+</main>
+   ) ;
+}
